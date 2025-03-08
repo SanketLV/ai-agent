@@ -1,0 +1,51 @@
+extend type Query {
+  wikipediaTool: TC_GraphQL
+    @supplies(query: "tc_tools")
+    @materializer(
+      query: "tc_graphql_tool"
+      arguments: [
+        { name: "name", const: "wikipedia" }
+        { name: "description", const: "Retrieve information from Wikipedia." }
+        { name: "fields", const: "search|page" }
+      ]
+    )
+  google_books: TC_GraphQL
+    @supplies(query: "tc_tools")
+    @materializer(
+      query: "tc_graphql_tool"
+      arguments: [
+        { name: "name", const: "google_books" }
+        {
+          name: "description"
+          const: "Retrieve information from Google Books. Find books by search string, for example to search for Daniel Keyes 'Flowers for Algernon' use q: 'intitle:flowers+inauthor:keyes'"
+        }
+        { name: "fields", const: "books|book" }
+      ]
+    )
+  curl_comments: TC_GraphQL
+    @supplies(query: "tc_tools")
+    @materializer(
+      query: "tc_graphql_tool"
+      arguments: [
+        { name: "name", const: "curl_comments" }
+        {
+          name: "description"
+          const: "Retrieve comments from a dummy JSON API. Returns a list of comments with user information, including body, likes, postId, and user details (username, fullname)."
+        }
+        { name: "fields", const: "myQuery" }
+      ]
+    )
+  youtube_transcript: TC_GraphQL
+    @supplies(query: "tc_tools")
+    @materializer(
+      query: "tc_graphql_tool"
+      arguments: [
+        { name: "name", const: "youtube_transcript" }
+        {
+          name: "description"
+          const: "Retrieve transcripts for a given YouTube video. The videoUrl should be in the format https://www.youtube.com/watch?v=VIDEO_ID"
+        }
+        { name: "fields", const: "transcript" }
+      ]
+    )
+}
