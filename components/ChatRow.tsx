@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 import { TrashIcon } from "@radix-ui/react-icons";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import TimeAgo from "react-timeago";
+import TimeAgo from "timeago-react";
 
 const ChatRow = ({
   chat,
@@ -59,7 +59,7 @@ const ChatRow = ({
         {/* Last Message */}
         {lastMessage && (
           <p className="text-xs text-gray-400 mt-1.5 font-medium">
-            <TimeAgo date={lastMessage.createdAt} />
+            <TimeAgo datetime={lastMessage.createdAt} locale="en-US" />
           </p>
         )}
       </div>
