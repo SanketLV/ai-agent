@@ -59,8 +59,9 @@ const initialiseModel = () => {
           console.log("Starting LLM call...");
         },
         handleLLMEnd: async (output) => {
-          console.log("End LLM call...", output);
-          console.log("Output tokens:", output.generations[0][0]);
+          // console.log("End LLM call...", output);
+          console.log("End LLM call...");
+          // console.log("Output tokens:", output.generations[0][0]);
           const usage = output.llmOutput?.usage;
           if (usage) {
             // console.log("Token Usage:", {
@@ -179,7 +180,7 @@ function addCachingHeaders(messages: BaseMessage[]): BaseMessage[] {
 export async function submitQuestion(messages: BaseMessage[], chatId: string) {
   // Add cahing headers to messages
   const cachedMessages = addCachingHeaders(messages);
-  console.log("🔒🔒🔒Cached messages:", cachedMessages);
+  // console.log("🔒🔒🔒Cached messages:", cachedMessages);
 
   const workflow = createWorkflow();
 
